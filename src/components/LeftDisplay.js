@@ -2,7 +2,10 @@ import React from 'react'
 
 function LeftDisplay() {
   return (
-    <div>LeftDisplay</div>
+    <div>
+      <h2>How to play:</h2>
+      <p>Click new game to get started!</p>
+    </div>
   )
 }
 
