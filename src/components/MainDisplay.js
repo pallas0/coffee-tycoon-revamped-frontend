@@ -41,6 +41,7 @@ function MainDisplay({ menu }) {
       {menuItems}
       </Grid>
       <img src={main_pic} alt="background" style={{height: "400px", width: "400x"}}/>
+      
     </div>
   )
 }
