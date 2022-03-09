@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@mui/material/Grid';
 import styled from 'styled-components'
+import { withTheme } from 'styled-components';
 //npm install @material-ui/core --save
 
 function MainDisplay({ menu }) {
@@ -36,10 +37,12 @@ function MainDisplay({ menu }) {
   
   return (
     <div id='maindisplay'>
-      <h2 className="header">Menu</h2>
-      <Grid id="menu-display" container spacing={2}>
+      <div id="menu-display">
+      <h1 className="header">MENU</h1>
+      <Grid container spacing={2}>
       {menuItems}
       </Grid>
+      </div>
       <img src={main_pic} alt="background" style={{height: "400px", width: "400x"}}/>
       
     </div>
