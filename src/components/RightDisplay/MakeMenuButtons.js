@@ -15,8 +15,20 @@ function MakeMenuButtons({ menu, money, handleMenu }) {
 
     function handleNewDayClick() {
       setIsClicked(false)
-      console.log(menu)
-      
+      for(const coffee in menu) {
+        if (menu[coffee]['quantity'] > 0){
+          fetch("http://localhost:9292/menuitems", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: coffee,
+              quantity: menu[coffee]['quantity'],
+            })
+          })
+        }
+      }
     }
 
   return (
