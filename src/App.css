@@ -54,7 +54,9 @@
 }
 
 .customer_lists {
-  margin: 100px;
+  margin: 80px;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 #weather {
@@ -64,6 +66,11 @@
 
 .weather_items {
   margin: 10px;
+}
+
+#instructions {
+  margin-top:0px;
+  width: 25%
 }
 
 

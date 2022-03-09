@@ -2,16 +2,22 @@ import React from 'react'
 
 import logo from '../logo.svg'
 
-function Header() {
+function Header({handleNewGame}) {
+  
   let min = Math.ceil(40)
   let max = Math.floor(90)
   let temperature = Math.floor(Math.random() * (max-min) + min);
   const conditions = ["Sunny ☀️", "Rainy 🌧"]
 
+  function clickNewGame(){
+    handleNewGame()
+  }
+
+
   return (
     <div id="header">
       <img src={logo} alt="Logo" style={{height: "200px", width: "200px"}}/>
-      <button>New Game</button>
+      <button onClick={clickNewGame}>New Game</button>
       <p>Current Weather :</p>
       <div id="weather">
         <p className='weather_items'>Caffeinetown, USA</p>
