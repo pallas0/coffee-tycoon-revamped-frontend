@@ -70,6 +70,8 @@
 
 .paper {
   padding: spacing(2);
+  opacity: 0.7;
+  color: white;
 }
 
 #instructions {
@@ -79,4 +81,10 @@
 
 #maindisplay {
   width: 45%;
+}
+
+#menu-display {
+  background-color: black;
+  border-color: green;
+  border-width: 10;
 }

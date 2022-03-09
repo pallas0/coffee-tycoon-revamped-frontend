@@ -27,9 +27,9 @@ function MainDisplay({ menu }) {
   for(const coffee in menu) {
     if (menu[coffee]['quantity'] > 0) {
       menuItems.push(<Grid item xs={4}>
-        <Paper key={coffee} elevation={0} className="paper">
+        <text key={coffee} elevation={0} className="paper">
           {coffee}: {menu[coffee]['quantity']}
-          </Paper>
+          </text>
         </Grid>)
     }
   }
@@ -37,7 +37,7 @@ function MainDisplay({ menu }) {
   return (
     <div id='maindisplay'>
       <h2 className="header">Menu</h2>
-      <Grid container spacing={2}>
+      <Grid id="menu-display" container spacing={2}>
       {menuItems}
       </Grid>
       <img src={main_pic} alt="background" style={{height: "400px", width: "400x"}}/>
