@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TotalPrice() {
+function TotalPrice({ menu, money }) {
   return (
     <div>TotalPrice</div>
   )

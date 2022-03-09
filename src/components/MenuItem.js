@@ -8,7 +8,8 @@ const StyledName = styled.p`
 
 const StyledContainer = styled.div`
   /* background-color: red; */
-  margin-bottom: -25px;
+  /* margin-bottom: -25px; */
+  height: 30px;
 `
 
 const StyledDiv = styled.div`
@@ -21,18 +22,30 @@ const StyledPrice = styled.p`
   /* background-color: green; */
 `
 
-function MenuItem({ name="Coffee", price=3 }) {
-  let counter = 0
+
+
+
+function MenuItem({ name="Coffee", price=3, handleQuantityChange, handleButtonClick, inputValue }) {
+
   return (
-      <StyledContainer className="horizontal">
-        <StyledName>{name}</StyledName>
-          <StyledDiv>
-            <button>-</button>
-            <input style={{"width": "25px"}} type="text" placeholder={`${counter}`}></input>
-            <button>+</button>
-          </StyledDiv>
-        <StyledPrice>${price}/ea</StyledPrice>
-      </StyledContainer>
+    <StyledContainer className="horizontal">
+      <StyledName>{name}</StyledName>
+        <StyledDiv>
+          <button onClick={() => handleButtonClick("minus", name)} style={{"height": "25px"}}>-</button>
+          <input 
+            onChange={e => handleQuantityChange(e, name)} 
+            style={{"width": "25px", "height": "20px"}} 
+            type="text" 
+            value={`${inputValue}`}
+
+            placeholder="0"
+            // placeholder={`${inputValue}`}
+            >
+          </input>
+          <button onClick={() => handleButtonClick("plus", name)} style={{"height": "25px"}}>+</button>
+        </StyledDiv>
+      <StyledPrice>${price}/ea</StyledPrice>
+    </StyledContainer>
   )
 }
 

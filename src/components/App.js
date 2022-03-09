@@ -4,6 +4,7 @@ import LeftDisplay from './LeftDisplay';
 import MainDisplay from './MainDisplay';
 import RightDisplay from './RightDisplay';
 import Header from './Header';
+import BottomText from './BottomText';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ function App() {
       <MainDisplay />
       <RightDisplay />
     </StyledDiv>
+    <BottomText />
     </div>
   );
 }
