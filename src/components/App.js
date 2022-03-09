@@ -5,6 +5,7 @@ import MainDisplay from './MainDisplay';
 import RightDisplay from './RightDisplay/RightDisplay';
 import Header from './Header';
 import BottomText from './BottomText';
+import EODReport from './EODReport';
 import {useState} from 'react'
 
 const StyledDiv = styled.div`
@@ -22,9 +23,12 @@ function App() {
     Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
   )
   const [orders, setOrders] = useState([])
+  const [displayInstructions, setDisplayInstructions] = useState(true)
+  const [displayEOD, setDisplayEOD] = useState(false)
 
-  function handleNewGame(){
-    setNewGame((newGame) => !newGame)
+  function handleStartGame(){
+    console.log('hello!')
+    setDisplayInstructions(false)
   }
 
   function handleMenu(menu) {
@@ -32,14 +36,24 @@ function App() {
   }
 
   return (
-    <div>
-    <Header handleNewGame={handleNewGame} weather={weather}/>
-    <StyledDiv>
-      <LeftDisplay />
-      <MainDisplay menu={displayMenu} />
-      <RightDisplay passMenuUp={handleMenu} setWeather={setWeather} weather={weather} setOrders={setOrders}/>
-    </StyledDiv>
-    <BottomText orders={orders} setOrders={setOrders}/>
+    <div className='vertical'>
+    <Header weather={weather}/>
+    {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: 
+      <StyledDiv>
+        <MainDisplay menu={displayMenu} /> 
+        <RightDisplay passMenuUp={handleMenu} 
+          setWeather={setWeather} 
+          weather={weather} 
+          setOrders={setOrders}
+          setDisplayEOD={setDisplayEOD} />
+      </StyledDiv>
+    }
+    {displayEOD ? 
+      <StyledDiv>
+        <EODReport />
+        <BottomText orders={orders} setOrders={setOrders}/>
+      </StyledDiv>
+      : null}
     </div>
   );
 }

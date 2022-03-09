@@ -80,7 +80,8 @@
 }
 
 #maindisplay {
-  width: 45%;
+  width: 400px;
+  /* background-color: red; */
 }
 
 #menu-display {
