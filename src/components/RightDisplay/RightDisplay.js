@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import MenuItem from './MenuItem'
+import MenuItem from '../MenuItem'
 import styled from 'styled-components'
 import TotalPrice from './TotalPrice'
 
@@ -13,23 +13,21 @@ function RightDisplay() {
   const [items, setItems] = useState([])
   const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
-    "Black Coffee": 0, 
-    "Cappuccino": 0,
-    "Cortado": 0,
-    "Latte": 0,
-    "Iced Coffee": 0,
-    "Iced Latte": 0,
-    "Iced Frappuccino": 0,
-    "Assam Black": 0,
-    "Jasmine Green": 0,
-    "Silver Needles White": 0,
-    "Matcha Latte": 0,
-    "Iced Sencha Green": 0,
-    "Iced Hibiscus": 0,
-    "Iced Chai Latte": 0
+    "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
+    "Cappuccino": { "buy_price": 2.5, "quantity": 0},
+    "Cortado": { "buy_price": 2.25, "quantity": 0},
+    "Latte": { "buy_price": 2.75, "quantity": 0},
+    "Iced Coffee": { "buy_price": 2.5, "quantity": 0},
+    "Iced Latte": { "buy_price": 3, "quantity": 0},
+    "Iced Frappuccino": { "buy_price": 3.25, "quantity": 0},
+    "Assam Black": { "buy_price": 2, "quantity": 0},
+    "Jasmine Green": { "buy_price": 2, "quantity": 0},
+    "Silver Needles White": { "buy_price": 2.5, "quantity": 0},
+    "Matcha Latte": { "buy_price": 3.25, "quantity": 0},
+    "Iced Sencha Green": { "buy_price": 2, "quantity": 0},
+    "Iced Hibiscus": { "buy_price": 2.25, "quantity": 0},
+    "Iced Chai Latte": { "buy_price": 3, "quantity": 0}
   })
-
-  console.log(menu)
 
   function getFetch(something) {
     return fetch(`http://localhost:9292/${something}`)
@@ -37,21 +35,21 @@ function RightDisplay() {
   }
 
   useEffect(() => getFetch("items").then(data => setItems(data)), [])
-  useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)) , [])
+  useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)), [])
 
   function handleQuantityChange(e, name) {
     let newMenu = {...menu}
-    newMenu[name] = parseInt(e.target.value)
+    newMenu[name].quantity = parseInt(e.target.value)
     setMenu(newMenu)
   }
 
   function handleButtonClick(action, name) {
     let newMenu = {...menu}
     if (action === "minus") {
-      newMenu[name] -= 1
+      newMenu[name].quantity -= 1
     }
     if (action === "plus") {
-      newMenu[name] += 1
+      newMenu[name].quantity += 1
     }
     setMenu(newMenu)
   }
@@ -63,7 +61,7 @@ function RightDisplay() {
       price={item.buy_price}
       handleQuantityChange={handleQuantityChange}
       handleButtonClick={handleButtonClick}
-      inputValue={menu[`${item.name}`]}
+      inputValue={menu[`${item.name}`].quantity}
       />
   }) 
 
@@ -71,8 +69,8 @@ function RightDisplay() {
     <div>
       <StyledDiv>
         {menuItems}
-      </StyledDiv>
-      <TotalPrice menu={menu} money={money}/>
+      </StyledDiv> 
+      <TotalPrice menu={menu} money={money} />
     </div>
   )
 }
