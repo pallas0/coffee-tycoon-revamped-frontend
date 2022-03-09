@@ -5,25 +5,35 @@ import MainDisplay from './MainDisplay';
 import RightDisplay from './RightDisplay/RightDisplay';
 import Header from './Header';
 import BottomText from './BottomText';
+import {useState} from 'react'
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  /* height: 800px; */
+  align-items: flex-start;
+  height:450px;
   /* background-color: red; */
 `
 
 function App() {
+
+  const [newGame, setNewGame] = useState(false)
+
+  function handleNewGame(){
+    setNewGame((newGame) => !newGame)
+  }
+
+  console.log(newGame)
+
   return (
-    <div className="vertical">
-      <Header />
-      <StyledDiv>
-        <LeftDisplay />
-        <MainDisplay />
-        <RightDisplay />
-      </StyledDiv>
-      <BottomText />
+    <div>
+    <Header handleNewGame={handleNewGame}/>
+    <StyledDiv>
+      <LeftDisplay />
+      <MainDisplay />
+      <RightDisplay />
+    </StyledDiv>
+    <BottomText />
     </div>
   );
 }
