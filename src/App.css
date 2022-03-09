@@ -54,7 +54,9 @@
 }
 
 .customer_lists {
-  margin: 100px;
+  margin: 80px;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 #weather {
@@ -70,6 +72,9 @@
   padding: spacing(2);
 }
 
-
+#instructions {
+  margin-top:0px;
+  width: 25%
+}
 
 

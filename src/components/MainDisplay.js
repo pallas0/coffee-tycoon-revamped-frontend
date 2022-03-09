@@ -6,8 +6,6 @@ import Grid from '@mui/material/Grid';
 import styled from 'styled-components'
 //npm install @material-ui/core --save
 
-
-
 function MainDisplay() {
   const menu = [
     "Black Coffee: ", 
