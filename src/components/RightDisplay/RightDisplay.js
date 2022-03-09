@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import MenuItem from '../MenuItem'
 import styled from 'styled-components'
-import TotalPrice from './TotalPrice'
+import NextDayButton from './NextDayButton'
+import MakeMenuButtons from './MakeMenuButtons'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-function RightDisplay() {
+function RightDisplay({passMenuUp}) {
   const [items, setItems] = useState([])
   const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
@@ -40,18 +41,23 @@ function RightDisplay() {
   function handleQuantityChange(e, name) {
     let newMenu = {...menu}
     newMenu[name].quantity = parseInt(e.target.value)
-    setMenu(newMenu)
+    setMenu(() => newMenu)
+    setMoney(() => money - newMenu[name].buy_price*parseInt(e.target.value))
   }
 
   function handleButtonClick(action, name) {
-    let newMenu = {...menu}
-    if (action === "minus") {
+  if (money >= 0)
+    {  let newMenu = {...menu}
+    if (action === "minus" && newMenu[name].quantity > 0) {
       newMenu[name].quantity -= 1
+      setMoney(() => money + newMenu[name].buy_price)
     }
     if (action === "plus") {
       newMenu[name].quantity += 1
+      setMoney(() => money - newMenu[name].buy_price)
     }
     setMenu(newMenu)
+    }
   }
 
   const menuItems = items.map(item => {
@@ -65,12 +71,17 @@ function RightDisplay() {
       />
   }) 
 
+  function handleMenu() {
+    passMenuUp(menu)
+  }
+
   return (
     <div>
+      <span>Store Money: ${money}</span>
       <StyledDiv>
         {menuItems}
       </StyledDiv> 
-      <TotalPrice menu={menu} money={money} />
+      <MakeMenuButtons menu={menu} money={money} handleMenu={handleMenu}/>
     </div>
   )
 }

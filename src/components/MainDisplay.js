@@ -6,38 +6,36 @@ import Grid from '@mui/material/Grid';
 import styled from 'styled-components'
 //npm install @material-ui/core --save
 
-function MainDisplay() {
-  const menu = [
-    "Black Coffee: ", 
-    "Cappuccino: ",
-    "Cortado: ",
-    "Latte: ",
-    "Iced Coffee: ",
-    "Iced Latte: ",
-    "Iced Frappuccino: ",
-    "Assam Black: ",
-    "Jasmine Green: ",
-    "Silver Needles White: ",
-    "Matcha Latte: ",
-    "Iced Sencha Green: ",
-    "Iced Hibiscus: ",
-    "Iced Chai Latte: "
-  ]
-
+function MainDisplay({ menu }) {
+  // const menu = [
+  //   "Black Coffee: ", 
+  //   "Cappuccino: ",
+  //   "Cortado: ",
+  //   "Latte: ",
+  //   "Iced Coffee: ",
+  //   "Iced Latte: ",
+  //   "Iced Frappuccino: ",
+  //   "Assam Black: ",
+  //   "Jasmine Green: ",
+  //   "Silver Needles White: ",
+  //   "Matcha Latte: ",
+  //   "Iced Sencha Green: ",
+  //   "Iced Hibiscus: ",
+  //   "Iced Chai Latte: "
+  // ]
+  let menuItems = []
+  for(const coffee in menu) {
+    if (menu[coffee]['quantity'] > 0) {
+      menuItems.push(<Grid item xs={4}>
+        <Paper key={coffee} elevation={0} className="paper">
+          {coffee}: {menu[coffee]['quantity']}
+          </Paper>
+        </Grid>)
+    }
+  }
   
-  
-  const menuItems = menu.map(item => {
-    return <Grid item xs={4}>
-      <Paper elevation={0} className="paper">
-        {item}
-        </Paper>
-    </Grid>
-  })
-  
-
-
   return (
-    <div>
+    <div id='maindisplay'>
       <h2 className="header">Menu</h2>
       <Grid container spacing={2}>
       {menuItems}
