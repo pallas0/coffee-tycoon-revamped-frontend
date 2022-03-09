@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NextDayButton from './NextDayButton'
 
-function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD}) {
+function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
   const [isClicked, setIsClicked] = useState(false)
 
     function handleAddItemsToMenu() {
@@ -16,8 +16,10 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
     function handleNewDayClick() {
       setIsClicked(false)
       setDisplayEOD(true)
-      // fetch("http://localhost:9292/menuitems",
-      // { method: 'DELETE' })
+      setShowMain(false)
+      
+      fetch("http://localhost:9292/menuitems",
+      { method: 'DELETE' })
 
       for(const coffee in menu) {
         if (menu[coffee]['quantity'] > 0){

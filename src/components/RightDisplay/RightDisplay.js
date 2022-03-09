@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD}) {
+function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
   const [items, setItems] = useState([])
   const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
@@ -92,7 +92,8 @@ function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD
         setWeather={setWeather} 
         weather={weather} 
         setOrders={setOrders}
-        setDisplayEOD={setDisplayEOD}/>
+        setDisplayEOD={setDisplayEOD}
+        setShowMain={setShowMain}/>
     </div>
   )
 }
