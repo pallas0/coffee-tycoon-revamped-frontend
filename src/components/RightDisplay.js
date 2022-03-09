@@ -11,7 +11,8 @@ const StyledDiv = styled.div`
 
 function RightDisplay() {
   const [items, setItems] = useState([])
-  const [counter, setCounter] = useState({
+  const [money, setMoney] = useState(0)
+  const [menu, setMenu] = useState({
     "Black Coffee": 0, 
     "Cappuccino": 0,
     "Cortado": 0,
@@ -24,30 +25,54 @@ function RightDisplay() {
     "Silver Needles White": 0,
     "Matcha Latte": 0,
     "Iced Sencha Green": 0,
-    "Ice Hibiscus": 0,
+    "Iced Hibiscus": 0,
     "Iced Chai Latte": 0
   })
 
-  useEffect(() => {
-    fetch("http://localhost:9292/items")
-    .then(res => res.json())
-    .then(data => setItems(() => data))
-  }, [])
+  console.log(menu)
 
-  
+  function getFetch(something) {
+    return fetch(`http://localhost:9292/${something}`)
+    .then(res => res.json())
+  }
+
+  useEffect(() => getFetch("items").then(data => setItems(data)), [])
+  useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)) , [])
+
+  function handleQuantityChange(e, name) {
+    let newMenu = {...menu}
+    newMenu[name] = parseInt(e.target.value)
+    setMenu(newMenu)
+  }
+
+  function handleButtonClick(action, name) {
+    let newMenu = {...menu}
+    if (action === "minus") {
+      newMenu[name] -= 1
+    }
+    if (action === "plus") {
+      newMenu[name] += 1
+    }
+    setMenu(newMenu)
+  }
 
   const menuItems = items.map(item => {
-    return <MenuItem key={item.id} name={item.name} price={item.buy_price}/>
+    return <MenuItem 
+      key={item.id} 
+      name={item.name} 
+      price={item.buy_price}
+      handleQuantityChange={handleQuantityChange}
+      handleButtonClick={handleButtonClick}
+      inputValue={menu[`${item.name}`]}
+      />
   }) 
-
-  console.log(counter)
 
   return (
     <div>
       <StyledDiv>
         {menuItems}
       </StyledDiv>
-      <TotalPrice />
+      <TotalPrice menu={menu} money={money}/>
     </div>
   )
 }
