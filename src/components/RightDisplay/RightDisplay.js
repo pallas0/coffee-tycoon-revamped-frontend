@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-function RightDisplay({passMenuUp}) {
+function RightDisplay({passMenuUp, setWeather, weather, setOrders}) {
   const [items, setItems] = useState([])
   const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
@@ -75,13 +75,18 @@ function RightDisplay({passMenuUp}) {
     passMenuUp(menu)
   }
 
+  function total_num_drinks() {
+    return Object.values(menu).reduce((total, curr) => total + curr.quantity, 0)
+  }
+
   return (
     <div>
       <span>Store Money: ${money}</span>
+      <span>Number of Drinks: {`${total_num_drinks()}`}</span>
       <StyledDiv>
         {menuItems}
       </StyledDiv> 
-      <MakeMenuButtons menu={menu} money={money} handleMenu={handleMenu}/>
+      <MakeMenuButtons menu={menu} money={money} handleMenu={handleMenu} setWeather={setWeather} weather={weather} setOrders={setOrders}/>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NextDayButton from './NextDayButton'
 
-function MakeMenuButtons({ menu, money, handleMenu }) {
+function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders }) {
   const [isClicked, setIsClicked] = useState(false)
 
     function handleAddItemsToMenu() {
@@ -15,6 +15,11 @@ function MakeMenuButtons({ menu, money, handleMenu }) {
 
     function handleNewDayClick() {
       setIsClicked(false)
+      
+
+      fetch("http://localhost:9292/menuitems",
+      { method: 'DELETE' })
+
       for(const coffee in menu) {
         if (menu[coffee]['quantity'] > 0){
           fetch("http://localhost:9292/menuitems", {
@@ -29,12 +34,18 @@ function MakeMenuButtons({ menu, money, handleMenu }) {
           })
         }
       }
+      fetch(`http://localhost:9292/orders/20/${weather}`)
+      .then(res => res.json())
+      .then(data => setOrders(() => data))
+
+      setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))
     }
 
   return (
     <div className='vertical'>
         
-        {isClicked ? <NextDayButton handleNewDayClick={handleNewDayClick}/> : <button onClick={handleAddItemsToMenu}>Add all items to menu</button>}
+        {isClicked ? <NextDayButton handleNewDayClick={handleNewDayClick} /> : 
+          <button onClick={handleAddItemsToMenu}>Add all items to menu</button>}
     </div>
   )
 }

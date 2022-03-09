@@ -16,23 +16,12 @@ const StyledDiv = styled.div`
 `
 
 function App() {
-  const [displayMenu, setDisplayMenu] = useState({
-    // "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
-    // "Cappuccino": { "buy_price": 2.5, "quantity": 0},
-    // "Cortado": { "buy_price": 2.25, "quantity": 0},
-    // "Latte": { "buy_price": 2.75, "quantity": 0},
-    // "Iced Coffee": { "buy_price": 2.5, "quantity": 0},
-    // "Iced Latte": { "buy_price": 3, "quantity": 0},
-    // "Iced Frappuccino": { "buy_price": 3.25, "quantity": 0},
-    // "Assam Black": { "buy_price": 2, "quantity": 0},
-    // "Jasmine Green": { "buy_price": 2, "quantity": 0},
-    // "Silver Needles White": { "buy_price": 2.5, "quantity": 0},
-    // "Matcha Latte": { "buy_price": 3.25, "quantity": 0},
-    // "Iced Sencha Green": { "buy_price": 2, "quantity": 0},
-    // "Iced Hibiscus": { "buy_price": 2.25, "quantity": 0},
-    // "Iced Chai Latte": { "buy_price": 3, "quantity": 0}
-  })
+  const [displayMenu, setDisplayMenu] = useState({})
   const [newGame, setNewGame] = useState(false)
+  const [weather, setWeather] = useState(
+    Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
+  )
+  const [orders, setOrders] = useState([])
 
   function handleNewGame(){
     setNewGame((newGame) => !newGame)
@@ -44,13 +33,13 @@ function App() {
 
   return (
     <div>
-    <Header handleNewGame={handleNewGame}/>
+    <Header handleNewGame={handleNewGame} weather={weather}/>
     <StyledDiv>
       <LeftDisplay />
       <MainDisplay menu={displayMenu} />
-      <RightDisplay passMenuUp={handleMenu}/>
+      <RightDisplay passMenuUp={handleMenu} setWeather={setWeather} weather={weather} setOrders={setOrders}/>
     </StyledDiv>
-    <BottomText />
+    <BottomText orders={orders} setOrders={setOrders}/>
     </div>
   );
 }
