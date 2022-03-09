@@ -1,6 +1,6 @@
 import React from 'react'
 import main_pic from '../main.png'
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 
 
 function MainDisplay() {
