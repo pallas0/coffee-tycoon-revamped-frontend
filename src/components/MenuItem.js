@@ -22,10 +22,13 @@ const StyledPrice = styled.p`
   /* background-color: green; */
 `
 
-
-
-
-function MenuItem({ name="Coffee", price=3, handleQuantityChange, handleButtonClick, inputValue }) {
+function MenuItem({ 
+  name="Coffee", 
+  price=3, 
+  handleQuantityChange, 
+  handleButtonClick, 
+  inputValue
+}) {
 
   return (
     <StyledContainer className="horizontal">
@@ -37,9 +40,7 @@ function MenuItem({ name="Coffee", price=3, handleQuantityChange, handleButtonCl
             style={{"width": "25px", "height": "20px"}} 
             type="text" 
             value={`${inputValue}`}
-
             placeholder="0"
-            // placeholder={`${inputValue}`}
             >
           </input>
           <button onClick={() => handleButtonClick("plus", name)} style={{"height": "25px"}}>+</button>

@@ -2,7 +2,7 @@ import '../App.css';
 import styled from 'styled-components'
 import LeftDisplay from './LeftDisplay';
 import MainDisplay from './MainDisplay';
-import RightDisplay from './RightDisplay';
+import RightDisplay from './RightDisplay/RightDisplay';
 import Header from './Header';
 import BottomText from './BottomText';
 import {useState} from 'react'
