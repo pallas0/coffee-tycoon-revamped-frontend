@@ -40,7 +40,7 @@ function MainDisplay({ menu }) {
       <Grid container spacing={2}>
       {menuItems}
       </Grid>
-      <img src={main_pic} alt="background" style={{height: "400px", width: "400x"}}/>
+      <img src={main_pic} alt="background" style={{'height': 'auto', 'width': "400px"}}/>
       
     </div>
   )

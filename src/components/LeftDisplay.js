@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LeftDisplay() {
+function LeftDisplay({ handleStartGame }) {
   return (
     <div id="instructions">
       <h2>How to play:</h2>
@@ -11,6 +11,7 @@ function LeftDisplay() {
         You'll have the chance to edit your menu and prepare for the next day. We'll see how popular your shop is and if you 
         really have what it takes to be a COFFEE TYCOON!
       </p>
+      <button onClick={handleStartGame}>Start Game</button>
     </div>
   )
 }
