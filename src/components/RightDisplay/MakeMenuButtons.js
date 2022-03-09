@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import NextDayButton from './NextDayButton'
 
-function MakeMenuButtons({ currentMoney }) {
+function MakeMenuButtons({ menu, money, handleMenu }) {
+  const [isClicked, setIsClicked] = useState(false)
 
     function handleAddItemsToMenu() {
-        if (currentMoney > 0) {
-            return null
+        if (money > 0) {
+          setIsClicked(true)
+          handleMenu()
+        } else {
+          alert("not enough moneys :(")
         }
     }
 
+    function handleNewDayClick() {
+      setIsClicked(false)
+      console.log(menu)
+      
+    }
+
   return (
-    <div>
-        <button onClick={handleAddItemsToMenu}>Add all items to menu</button>
+    <div className='vertical'>
+        
+        {isClicked ? <NextDayButton handleNewDayClick={handleNewDayClick}/> : <button onClick={handleAddItemsToMenu}>Add all items to menu</button>}
     </div>
   )
 }
