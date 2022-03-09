@@ -25,10 +25,11 @@ function App() {
   const [orders, setOrders] = useState([])
   const [displayInstructions, setDisplayInstructions] = useState(true)
   const [displayEOD, setDisplayEOD] = useState(false)
+  const [showMain, setShowMain] = useState(false)
 
   function handleStartGame(){
-    console.log('hello!')
     setDisplayInstructions(false)
+    setShowMain(true)
   }
 
   function handleMenu(menu) {
@@ -38,15 +39,16 @@ function App() {
   return (
     <div className='vertical'>
     <Header weather={weather}/>
-    {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: 
-      <StyledDiv>
+    {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: null}
+     {showMain ? <StyledDiv>
         <MainDisplay menu={displayMenu} /> 
         <RightDisplay passMenuUp={handleMenu} 
           setWeather={setWeather} 
           weather={weather} 
           setOrders={setOrders}
-          setDisplayEOD={setDisplayEOD} />
-      </StyledDiv>
+          setDisplayEOD={setDisplayEOD}
+          setShowMain={setShowMain} />
+      </StyledDiv> : null
     }
     {displayEOD ? 
       <StyledDiv>
