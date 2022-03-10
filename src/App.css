@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .App {
   text-align: center;
 }
@@ -113,4 +114,8 @@
   width: 900px;
   margin-bottom: -30px;
   /* background-color: red; */
+}
+
+#quantity_input {
+  margin-top: 6px;
 }

@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from 'react'
 
-function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMenu}) {
+function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMenu, setWeather}) {
   const [fulfilled, setFulfilled] = useState([])
   const [notFulfilled, setNotFulfilled] = useState([])
   
@@ -34,6 +34,7 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
       {method: 'DELETE'})
 
     setDisplayMenu(() => {})
+    setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))
     onHandleNextDayClick()
   }
 
