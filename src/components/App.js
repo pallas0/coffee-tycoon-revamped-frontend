@@ -52,7 +52,7 @@ function App() {
     }
     {displayEOD ? 
       <StyledDiv>
-        <EODReport />
+        <EODReport orders={orders}/>
         <BottomText orders={orders} setOrders={setOrders}/>
       </StyledDiv>
       : null}
