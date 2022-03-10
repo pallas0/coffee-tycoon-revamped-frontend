@@ -11,14 +11,15 @@ import {useState} from 'react'
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
-  height:450px;
+  align-items: space-around;
+  height: 600px;
+  width: 800px;
   /* background-color: red; */
 `
 
 function App() {
   const [displayMenu, setDisplayMenu] = useState({})
-  const [newGame, setNewGame] = useState(false)
+  // const [newGame, setNewGame] = useState(false)
   const [weather, setWeather] = useState(
     Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
   )

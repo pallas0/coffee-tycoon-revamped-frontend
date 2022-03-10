@@ -80,8 +80,12 @@
 }
 
 #maindisplay {
-  width: 400px;
-  /* background-color: red; */
+  width: 500px;
+  /* background-color: yellow; */
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
 }
 
 #menu-display {
