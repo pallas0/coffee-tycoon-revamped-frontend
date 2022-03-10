@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MenuItem from '../MenuItem'
 import styled from 'styled-components'
-import NextDayButton from './NextDayButton'
+//import NextDayButton from './NextDayButton'
 import MakeMenuButtons from './MakeMenuButtons'
 
 const StyledDiv = styled.div`
@@ -11,6 +11,7 @@ const StyledDiv = styled.div`
 `
 
 function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
+  const [isClicked, setIsClicked] = useState(false)
   const [items, setItems] = useState([])
   const [menu, setMenu] = useState({
     "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
@@ -42,21 +43,23 @@ function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrde
     newMenu[name].quantity = parseInt(e.target.value)
     setMenu(() => newMenu)
     setMoney(() => money - newMenu[name].buy_price*parseInt(e.target.value))
+
   }
 
-  function handleButtonClick(action, name) {
-  if (money >= 0)
-    {  let newMenu = {...menu}
-    if (action === "minus" && newMenu[name].quantity > 0) {
-      newMenu[name].quantity -= 1
-      setMoney(() => money + newMenu[name].buy_price)
+  function handleButtonClick(action, name, isClicked) {
+      let newMenu = {...menu}
+    if (!isClicked) {
+      if (action === "minus" && newMenu[name].quantity > 0) {
+        newMenu[name].quantity -= 1
+        setMoney(() => money + newMenu[name].buy_price)
+      }
+      if (action === "plus") {
+        newMenu[name].quantity += 1
+        setMoney(() => money - newMenu[name].buy_price)
+      }
+      setMenu(newMenu)
     }
-    if (action === "plus") {
-      newMenu[name].quantity += 1
-      setMoney(() => money - newMenu[name].buy_price)
-    }
-    setMenu(newMenu)
-    }
+    
   }
 
   const menuItems = items.map(item => {
@@ -67,6 +70,7 @@ function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrde
       handleQuantityChange={handleQuantityChange}
       handleButtonClick={handleButtonClick}
       inputValue={menu[`${item.name}`].quantity}
+      isClicked={isClicked}
       />
   }) 
 
@@ -94,7 +98,9 @@ function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrde
         weather={weather} 
         setOrders={setOrders}
         setDisplayEOD={setDisplayEOD}
-        setShowMain={setShowMain}/>
+        setShowMain={setShowMain}
+        isClicked={isClicked}
+        setIsClicked={setIsClicked}/>
     </div>
   )
 }

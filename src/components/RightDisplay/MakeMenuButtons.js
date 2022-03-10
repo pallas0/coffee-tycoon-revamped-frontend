@@ -8,8 +8,8 @@ import { flexbox } from '@material-ui/system';
 import styled from 'styled-components';
 import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 
-function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
-  const [isClicked, setIsClicked] = useState(false)
+function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD, setShowMain, isClicked, setIsClicked}) {
+  
   const [open, setOpen] = useState(false);
 
   const style = {
@@ -32,6 +32,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
         if (money > 0) {
           setIsClicked(true)
           handleMenu()
+          //onHandleAddItems(isClicked)
         } else {
           setOpen(true);
         }
