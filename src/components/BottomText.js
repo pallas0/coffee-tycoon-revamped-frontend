@@ -22,13 +22,19 @@ function BottomText({orders, setOrders}) {
       fulfilled_orders.map((order) => <li key={order.id}>{order.customer.name} bought a {order.menu_item.item.name} 😀</li>) : "No happy customers! 😩"
     let sad_customers = unfulfilled_orders.length > 0 ?
       unfulfilled_orders.map((order) => <li key={order.id}>{order.customer.name} didn't get their order of a {order.menu_item.item.name} and left! 😩</li>) : "No sad customers! 😀"
-
+    let comments = fulfilled_orders.length > 0 ? 
+      fulfilled_orders.map((order) => <li key={order.id}>{order.customer.happy_saying}</li>) : "No comments."
   
+      
   return (
     <div id="customers">
       <div className="customer_lists">
         <StyledSpan>Happy Customers ✔️</StyledSpan>
         <ul>{happy_customers}</ul>
+      </div>
+      <div className="customer_lists">
+        <StyledSpan>Comments</StyledSpan>  
+        <ul>{comments}</ul>
       </div>
       <div className="customer_lists">
         <StyledSpan>Sad Customers ❌</StyledSpan>

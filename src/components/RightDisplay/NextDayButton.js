@@ -2,7 +2,7 @@ import React from 'react'
 
 function NextDayButton({ handleNewDayClick }) {
   return (
-    <button onClick={handleNewDayClick}>Start new day!</button>
+    <button onClick={handleNewDayClick}>Start New Day!</button>
   )
 }
 

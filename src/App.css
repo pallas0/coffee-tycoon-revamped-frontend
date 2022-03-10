@@ -45,6 +45,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* background-color: red; */
+}
+
+#rightdisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 550px;
 }
 
 #customers{
@@ -68,8 +76,17 @@
   /* background-color: yellow; */
 }
 
+.money {
+  color: green;
+  font-size: larger;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .weather_items {
-  margin: -3px;
+  margin-top: -3px;
   font-size: x-large;
   font-weight: bolder;
 }
@@ -77,18 +94,25 @@
 .paper {
   opacity: 0.8;
   color: white;
+  margin-top: 0px;
 }
 
 #instructions {
   margin-top:0px;
-  width: 25%
+  width: 30%;
+  /* background-color: yellow; */
+}
+
+#instructions span {
+  font-weight: bold;
 }
 
 #maindisplay {
   width: 500px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
 }
 
 #menu-display {
@@ -102,8 +126,10 @@
   font-size: 100%;
 }
 
-.header {
+#menuheader {
   color: whitesmoke;
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 #eod {

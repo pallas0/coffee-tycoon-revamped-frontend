@@ -23,7 +23,7 @@ function MainDisplay({ menu }) {
   return (
     <div id='maindisplay'>
       <div id="menu-display">
-        <h1 className="header">MENU</h1>
+        <h1 id="menuheader">MENU</h1>
         <Grid container spacing={2}>
         {menuItems}
         </Grid>

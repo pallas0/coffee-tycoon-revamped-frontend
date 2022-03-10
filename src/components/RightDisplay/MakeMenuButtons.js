@@ -63,7 +63,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
     <div className='vertical'>
         
         {isClicked ? <NextDayButton handleNewDayClick={handleNewDayClick} /> : 
-          <button onClick={handleAddItemsToMenu}>Add all items to menu</button>
+          <button onClick={handleAddItemsToMenu}>Add All Items to Menu</button>
           }
 
     <Modal
