@@ -37,13 +37,13 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
         }
     }
 
-    function handleNewDayClick() {
+    async function handleNewDayClick() {
       setIsClicked(false)
       setDisplayCafeGif(true)
       setShowMain(false)
     
 
-      fetch("http://localhost:9292/menuitems", {
+      await fetch("http://localhost:9292/menuitems", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
