@@ -10,7 +10,9 @@ const StyledContainer = styled.div`
 `
 
 const StyledDiv = styled.div`
+  display: flex;
   width: 35%;
+  align-items: center;
 `
 
 const StyledPrice = styled.p`
@@ -31,7 +33,7 @@ function MenuItem({
       <StyledName>{name}</StyledName>
         <StyledDiv>
           <button onClick={() => handleButtonClick("minus", name, isClicked)} style={{"height": "25px"}}>-</button>
-          <input 
+          <input id="quantity_input"
             onChange={e => handleQuantityChange(e, name)} 
             style={{"width": "25px", "height": "20px"}} 
             type="text" 

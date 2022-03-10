@@ -57,8 +57,6 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       fetch(`http://localhost:9292/orders/20/${weather}`)
       .then(res => res.json())
       .then(data => setOrders(() => data))
-
-      setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))
     }
 
   return (

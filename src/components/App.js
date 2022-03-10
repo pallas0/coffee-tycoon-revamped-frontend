@@ -40,6 +40,19 @@ function App() {
   useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)), [])
 
   function handleStartGame(){
+    fetch("http://localhost:9292/stores/1", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        money: 40,
+        popularity: 0.5
+      })
+    })
+    .then(res => res.json())
+    .then(data => setMoney(data.money))
+
     setDisplayInstructions(false)
     setShowMain(true)
   }
@@ -77,7 +90,13 @@ function App() {
     {displayCafeGif ? <CafeGif handleEndDayClick={handleEndDayClick}/> : null}
     {displayEOD ? 
       <div className='vertical'>
-        <EODReport orders={orders} onHandleNextDayClick={onHandleNextDayClick} money={money} setMoney={setMoney} setDisplayMenu={setDisplayMenu}/>
+        <EODReport 
+        orders={orders} 
+        onHandleNextDayClick={onHandleNextDayClick} 
+        money={money} 
+        setMoney={setMoney} 
+        setDisplayMenu={setDisplayMenu}
+        setWeather={setWeather}/>
         <BottomText orders={orders} setOrders={setOrders}/>
       </div>
       : null}
