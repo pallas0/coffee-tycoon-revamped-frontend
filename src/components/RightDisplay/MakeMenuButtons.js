@@ -42,20 +42,18 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       setDisplayEOD(true)
       setShowMain(false)
     
-      for(const coffee in menu) {
-        if (menu[coffee]['quantity'] > 0){
-          fetch("http://localhost:9292/menuitems", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: coffee,
-              quantity: menu[coffee]['quantity'],
-            })
-          })
-        }
-      }
+
+      fetch("http://localhost:9292/menuitems", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          },
+        body: JSON.stringify({
+          menu
+        })
+      })
+
+
       fetch(`http://localhost:9292/orders/20/${weather}`)
       .then(res => res.json())
       .then(data => setOrders(() => data))
