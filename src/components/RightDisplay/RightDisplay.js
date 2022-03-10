@@ -10,9 +10,8 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
+function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
   const [items, setItems] = useState([])
-  const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
     "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
     "Cappuccino": { "buy_price": 2.50, "quantity": 0},
@@ -36,7 +35,7 @@ function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD
   }
 
   useEffect(() => getFetch("items").then(data => setItems(data)), [])
-  useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)), [])
+
 
   function handleQuantityChange(e, name) {
     let newMenu = {...menu}
@@ -78,6 +77,8 @@ function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD
   function total_num_drinks() {
     return Object.values(menu).reduce((total, curr) => total + curr.quantity, 0)
   }
+
+  console.log(money)
 
   return (
     <div className='vertical'>

@@ -64,6 +64,7 @@
   justify-content: center;
   align-items: center;
   width: 450px;
+  /* background-color: yellow; */
 }
 
 .weather_items {
@@ -84,11 +85,9 @@
 
 #maindisplay {
   width: 500px;
-  /* background-color: yellow; */
   display:flex;
   flex-direction: column;
   justify-content: space-evenly;
-  
 }
 
 #menu-display {
@@ -109,6 +108,9 @@
 #eod {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  width: 900px;
+  margin-bottom: -30px;
+  /* background-color: red; */
 }

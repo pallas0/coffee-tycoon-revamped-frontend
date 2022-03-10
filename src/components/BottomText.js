@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+const StyledSpan = styled.span`
+  font-weight: bolder;
+  font-size: x-large;
+`
+
 function BottomText({orders, setOrders}) {
   
 
@@ -22,11 +27,11 @@ function BottomText({orders, setOrders}) {
   return (
     <div id="customers">
       <div className="customer_lists">
-        <h3>Happy Customers</h3>
+        <StyledSpan>Happy Customers ✔️</StyledSpan>
         <ul>{happy_customers}</ul>
       </div>
       <div className="customer_lists">
-        <h3>Sad Customers</h3>
+        <StyledSpan>Sad Customers ❌</StyledSpan>
         <ul>{sad_customers}</ul>
       </div>
     </div>
