@@ -7,6 +7,7 @@ import Header from './Header';
 import BottomText from './BottomText';
 import EODReport from './EODReport';
 import {useState, useEffect} from 'react'
+import ModalComponent from 'react-modal-dom';
 
 const StyledDiv = styled.div`
   display: flex;
