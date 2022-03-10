@@ -15,19 +15,19 @@ function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD
   const [money, setMoney] = useState(0)
   const [menu, setMenu] = useState({
     "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
-    "Cappuccino": { "buy_price": 2.5, "quantity": 0},
+    "Cappuccino": { "buy_price": 2.50, "quantity": 0},
     "Cortado": { "buy_price": 2.25, "quantity": 0},
     "Latte": { "buy_price": 2.75, "quantity": 0},
-    "Iced Coffee": { "buy_price": 2.5, "quantity": 0},
-    "Iced Latte": { "buy_price": 3, "quantity": 0},
+    "Iced Coffee": { "buy_price": 2.50, "quantity": 0},
+    "Iced Latte": { "buy_price": 3.00, "quantity": 0},
     "Iced Frappuccino": { "buy_price": 3.25, "quantity": 0},
-    "Assam Black": { "buy_price": 2, "quantity": 0},
-    "Jasmine Green": { "buy_price": 2, "quantity": 0},
-    "Silver Needles White": { "buy_price": 2.5, "quantity": 0},
+    "Assam Black": { "buy_price": 2.00, "quantity": 0},
+    "Jasmine Green": { "buy_price": 2.00, "quantity": 0},
+    "Silver Needles White": { "buy_price": 2.50, "quantity": 0},
     "Matcha Latte": { "buy_price": 3.25, "quantity": 0},
-    "Iced Sencha Green": { "buy_price": 2, "quantity": 0},
+    "Iced Sencha Green": { "buy_price": 2.00, "quantity": 0},
     "Iced Hibiscus": { "buy_price": 2.25, "quantity": 0},
-    "Iced Chai Latte": { "buy_price": 3, "quantity": 0}
+    "Iced Chai Latte": { "buy_price": 3.00, "quantity": 0}
   })
 
   function getFetch(something) {
@@ -80,9 +80,11 @@ function RightDisplay({passMenuUp, setWeather, weather, setOrders, setDisplayEOD
   }
 
   return (
-    <div>
-      <span>Store Money: ${money}</span>
-      <span>Number of Drinks: {`${total_num_drinks()}`}</span>
+    <div className='vertical'>
+      <div className='vertical'>
+        <span>Store Money: ${money}</span>
+        <span>Number of Drinks: {`${total_num_drinks()}`}</span>
+      </div>
       <StyledDiv>
         {menuItems}
       </StyledDiv> 

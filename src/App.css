@@ -47,26 +47,29 @@
 }
 
 #customers{
+  margin: 5%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin: 5%
+  align-items: flex-start;
+  /* background-color: red; */
 }
 
 .customer_lists {
-  margin: 80px;
+  /* margin: 80px;
   overflow: visible;
-  white-space: nowrap;
-}
-
-#weather {
+  white-space: nowrap; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
 }
 
 .weather_items {
-  margin: 10px;
+  margin: -3px;
+  font-size: x-large;
+  font-weight: bolder;
 }
 
 .paper {
@@ -80,8 +83,12 @@
 }
 
 #maindisplay {
-  width: 400px;
-  /* background-color: red; */
+  width: 500px;
+  /* background-color: yellow; */
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
 }
 
 #menu-display {

@@ -10,15 +10,17 @@ import {useState} from 'react'
 
 const StyledDiv = styled.div`
   display: flex;
+  flex-direction: horizontal;
   justify-content: space-around;
-  align-items: flex-start;
-  height:450px;
+  align-items: space-around;
+  height: 600px;
+  width: 800px;
   /* background-color: red; */
 `
 
 function App() {
   const [displayMenu, setDisplayMenu] = useState({})
-  const [newGame, setNewGame] = useState(false)
+  // const [newGame, setNewGame] = useState(false)
   const [weather, setWeather] = useState(
     Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
   )
@@ -38,7 +40,7 @@ function App() {
 
   return (
     <div className='vertical'>
-    <Header weather={weather}/>
+    <Header weather={weather} displayInstructions={displayInstructions}/>
     {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: null}
      {showMain ? <StyledDiv>
         <MainDisplay menu={displayMenu} /> 
@@ -52,8 +54,8 @@ function App() {
     }
     {displayEOD ? 
       <StyledDiv>
-        <EODReport orders={orders}/>
         <BottomText orders={orders} setOrders={setOrders}/>
+        <EODReport orders={orders}/>
       </StyledDiv>
       : null}
     </div>
