@@ -20,7 +20,6 @@ const StyledDiv = styled.div`
 
 function App() {
   const [displayMenu, setDisplayMenu] = useState({})
-  // const [newGame, setNewGame] = useState(false)
   const [weather, setWeather] = useState(
     Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
   )
@@ -51,7 +50,6 @@ function App() {
     setDisplayEOD(false)
   }
 
-  console.log(money)
 
   return (
     <div className='vertical'>
@@ -71,7 +69,7 @@ function App() {
     }
     {displayEOD ? 
       <div className='vertical'>
-        <EODReport orders={orders} onHandleNextDayClick={onHandleNextDayClick} money={money} setMoney={setMoney}/>
+        <EODReport orders={orders} onHandleNextDayClick={onHandleNextDayClick} money={money} setMoney={setMoney} setDisplayMenu={setDisplayMenu}/>
         <BottomText orders={orders} setOrders={setOrders}/>
       </div>
       : null}

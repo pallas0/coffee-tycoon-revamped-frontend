@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from 'react'
 
-function EODReport({orders, onHandleNextDayClick, money, setMoney}) {
+function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMenu}) {
   const [fulfilled, setFulfilled] = useState([])
   const [notFulfilled, setNotFulfilled] = useState([])
   
@@ -28,6 +28,12 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney}) {
     .then(res => res.json())
     .then((data) => setMoney(data[0].money))
     
+    fetch("http://localhost:9292/orders", 
+      {method: 'DELETE'})
+    fetch("http://localhost:9292/menuitems)", 
+      {method: 'DELETE'})
+
+    setDisplayMenu(() => {})
     onHandleNextDayClick()
   }
 

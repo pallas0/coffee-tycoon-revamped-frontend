@@ -78,8 +78,6 @@ function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrde
     return Object.values(menu).reduce((total, curr) => total + curr.quantity, 0)
   }
 
-  console.log(money)
-
   return (
     <div className='vertical'>
       <div className='vertical'>
