@@ -10,6 +10,7 @@ import {useState} from 'react'
 
 const StyledDiv = styled.div`
   display: flex;
+  flex-direction: horizontal;
   justify-content: space-around;
   align-items: space-around;
   height: 600px;
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <div className='vertical'>
-    <Header weather={weather}/>
+    <Header weather={weather} displayInstructions={displayInstructions}/>
     {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: null}
      {showMain ? <StyledDiv>
         <MainDisplay menu={displayMenu} /> 
@@ -53,8 +54,8 @@ function App() {
     }
     {displayEOD ? 
       <StyledDiv>
-        <EODReport />
         <BottomText orders={orders} setOrders={setOrders}/>
+        <EODReport />
       </StyledDiv>
       : null}
     </div>

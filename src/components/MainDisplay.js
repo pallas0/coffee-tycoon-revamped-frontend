@@ -28,9 +28,9 @@ function MainDisplay({ menu }) {
   for(const coffee in menu) {
     if (menu[coffee]['quantity'] > 0) {
       menuItems.push(<Grid item xs={4}>
-        <text key={coffee} elevation={0} className="paper">
+        <span key={coffee} elevation={0} className="paper">
           {coffee}: {menu[coffee]['quantity']}
-          </text>
+          </span>
         </Grid>)
     }
   }
