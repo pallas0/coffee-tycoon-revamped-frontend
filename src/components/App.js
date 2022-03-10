@@ -6,6 +6,7 @@ import RightDisplay from './RightDisplay/RightDisplay';
 import Header from './Header';
 import BottomText from './BottomText';
 import EODReport from './EODReport';
+import CafeGif from './CafeGif';
 import {useState, useEffect} from 'react'
 import ModalComponent from 'react-modal-dom';
 
@@ -28,6 +29,7 @@ function App() {
   const [money, setMoney] = useState(0)
   const [displayInstructions, setDisplayInstructions] = useState(true)
   const [displayEOD, setDisplayEOD] = useState(false)
+  const [displayCafeGif, setDisplayCafeGif] = useState(false)
   const [showMain, setShowMain] = useState(false)
 
   function getFetch(something) {
@@ -64,6 +66,11 @@ function App() {
     setDisplayEOD(false)
   }
 
+  function handleEndDayClick() {
+    setDisplayEOD(true)
+    setDisplayCafeGif(false)
+  }
+
   return (
     <div className='vertical'>
     <Header weather={weather} displayInstructions={displayInstructions}/>
@@ -76,10 +83,11 @@ function App() {
           setWeather={setWeather} 
           weather={weather} 
           setOrders={setOrders}
-          setDisplayEOD={setDisplayEOD}
+          setDisplayCafeGif={setDisplayCafeGif}
           setShowMain={setShowMain} />
       </StyledDiv> : null
     }
+    {displayCafeGif ? <CafeGif handleEndDayClick={handleEndDayClick}/> : null}
     {displayEOD ? 
       <div className='vertical'>
         <EODReport 
