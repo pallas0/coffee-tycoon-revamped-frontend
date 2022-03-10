@@ -8,8 +8,7 @@ import { flexbox } from '@material-ui/system';
 import styled from 'styled-components';
 import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 
-function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
-  const [isClicked, setIsClicked] = useState(false)
+function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayCafeGif, setShowMain, isClicked, setIsClicked}) {
   const [open, setOpen] = useState(false);
 
   const style = {
@@ -32,6 +31,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
         if (money > 0) {
           setIsClicked(true)
           handleMenu()
+          //onHandleAddItems(isClicked)
         } else {
           setOpen(true);
         }
@@ -39,7 +39,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
 
     function handleNewDayClick() {
       setIsClicked(false)
-      setDisplayEOD(true)
+      setDisplayCafeGif(true)
       setShowMain(false)
     
 
@@ -57,8 +57,6 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       fetch(`http://localhost:9292/orders/20/${weather}`)
       .then(res => res.json())
       .then(data => setOrders(() => data))
-
-      setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))
     }
 
   return (
