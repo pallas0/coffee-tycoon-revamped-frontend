@@ -6,26 +6,36 @@ import RightDisplay from './RightDisplay/RightDisplay';
 import Header from './Header';
 import BottomText from './BottomText';
 import EODReport from './EODReport';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const StyledDiv = styled.div`
   display: flex;
+  flex-direction: horizontal;
   justify-content: space-around;
-  align-items: flex-start;
-  height:450px;
+  align-items: space-around;
+  height: 600px;
+  width: 800px;
   /* background-color: red; */
 `
 
 function App() {
   const [displayMenu, setDisplayMenu] = useState({})
-  const [newGame, setNewGame] = useState(false)
+  // const [newGame, setNewGame] = useState(false)
   const [weather, setWeather] = useState(
     Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40))
   )
   const [orders, setOrders] = useState([])
+  const [money, setMoney] = useState(0)
   const [displayInstructions, setDisplayInstructions] = useState(true)
   const [displayEOD, setDisplayEOD] = useState(false)
   const [showMain, setShowMain] = useState(false)
+
+  function getFetch(something) {
+    return fetch(`http://localhost:9292/${something}`)
+    .then(res => res.json())
+  }
+
+  useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)), [])
 
   function handleStartGame(){
     setDisplayInstructions(false)
@@ -36,13 +46,22 @@ function App() {
     setDisplayMenu(menu)
   }
 
+  function onHandleNextDayClick() {
+    setShowMain(true)
+    setDisplayEOD(false)
+  }
+
+  console.log(money)
+
   return (
     <div className='vertical'>
-    <Header weather={weather}/>
+    <Header weather={weather} displayInstructions={displayInstructions}/>
     {displayInstructions ? <LeftDisplay handleStartGame={handleStartGame}/>: null}
      {showMain ? <StyledDiv>
         <MainDisplay menu={displayMenu} /> 
         <RightDisplay passMenuUp={handleMenu} 
+          money={money}
+          setMoney={setMoney}
           setWeather={setWeather} 
           weather={weather} 
           setOrders={setOrders}
@@ -51,10 +70,10 @@ function App() {
       </StyledDiv> : null
     }
     {displayEOD ? 
-      <StyledDiv>
-        <EODReport />
+      <div className='vertical'>
+        <EODReport orders={orders} onHandleNextDayClick={onHandleNextDayClick} money={money} setMoney={setMoney}/>
         <BottomText orders={orders} setOrders={setOrders}/>
-      </StyledDiv>
+      </div>
       : null}
     </div>
   );

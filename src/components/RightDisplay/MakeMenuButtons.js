@@ -17,10 +17,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       setIsClicked(false)
       setDisplayEOD(true)
       setShowMain(false)
-      
-      fetch("http://localhost:9292/menuitems",
-      { method: 'DELETE' })
-
+    
       for(const coffee in menu) {
         if (menu[coffee]['quantity'] > 0){
           fetch("http://localhost:9292/menuitems", {

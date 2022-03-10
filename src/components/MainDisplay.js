@@ -8,29 +8,14 @@ import { withTheme } from 'styled-components';
 //npm install @material-ui/core --save
 
 function MainDisplay({ menu }) {
-  // const menu = [
-  //   "Black Coffee: ", 
-  //   "Cappuccino: ",
-  //   "Cortado: ",
-  //   "Latte: ",
-  //   "Iced Coffee: ",
-  //   "Iced Latte: ",
-  //   "Iced Frappuccino: ",
-  //   "Assam Black: ",
-  //   "Jasmine Green: ",
-  //   "Silver Needles White: ",
-  //   "Matcha Latte: ",
-  //   "Iced Sencha Green: ",
-  //   "Iced Hibiscus: ",
-  //   "Iced Chai Latte: "
-  // ]
+
   let menuItems = []
   for(const coffee in menu) {
     if (menu[coffee]['quantity'] > 0) {
-      menuItems.push(<Grid item xs={4}>
-        <text key={coffee} elevation={0} className="paper">
+      menuItems.push(<Grid key={coffee} item xs={4}>
+        <span key={coffee} elevation={0} className="paper">
           {coffee}: {menu[coffee]['quantity']}
-          </text>
+          </span>
         </Grid>)
     }
   }
@@ -43,7 +28,7 @@ function MainDisplay({ menu }) {
         {menuItems}
         </Grid>
       </div>
-      <img src={main_pic} alt="background" style={{'height': 'auto', 'width': "400px"}}/>
+      <img src={main_pic} alt="background" style={{'height': 'auto', 'width': "500px"}}/>
     </div>
   )
 }
