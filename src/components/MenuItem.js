@@ -22,14 +22,15 @@ function MenuItem({
   price=3, 
   handleQuantityChange, 
   handleButtonClick, 
-  inputValue
+  inputValue,
+  isClicked
 }) {
 
   return (
     <StyledContainer className="horizontal">
       <StyledName>{name}</StyledName>
         <StyledDiv>
-          <button onClick={() => handleButtonClick("minus", name)} style={{"height": "25px"}}>-</button>
+          <button onClick={() => handleButtonClick("minus", name, isClicked)} style={{"height": "25px"}}>-</button>
           <input 
             onChange={e => handleQuantityChange(e, name)} 
             style={{"width": "25px", "height": "20px"}} 
@@ -38,7 +39,7 @@ function MenuItem({
             placeholder="0"
             >
           </input>
-          <button onClick={() => handleButtonClick("plus", name)} style={{"height": "25px"}}>+</button>
+          <button onClick={() => handleButtonClick("plus", name, isClicked)} style={{"height": "25px"}}>+</button>
         </StyledDiv>
       <StyledPrice>${price}/ea</StyledPrice>
     </StyledContainer>
