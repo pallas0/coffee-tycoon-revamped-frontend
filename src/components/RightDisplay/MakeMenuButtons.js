@@ -28,7 +28,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
     }
 
     function handleAddItemsToMenu() {
-        if (money > 0) {
+        if (money => 0) {
           setIsClicked(true)
           handleMenu()
           //onHandleAddItems(isClicked)
@@ -37,13 +37,13 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
         }
     }
 
-    function handleNewDayClick() {
+    async function handleNewDayClick() {
       setIsClicked(false)
       setDisplayCafeGif(true)
       setShowMain(false)
     
 
-      fetch("http://localhost:9292/menuitems", {
+      await fetch("http://localhost:9292/menuitems", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
     <div className='vertical'>
         
         {isClicked ? <NextDayButton handleNewDayClick={handleNewDayClick} /> : 
-          <button onClick={handleAddItemsToMenu}>Add all items to menu</button>
+          <button onClick={handleAddItemsToMenu}>Add All Items to Menu</button>
           }
 
     <Modal

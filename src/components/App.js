@@ -15,8 +15,9 @@ const StyledDiv = styled.div`
   flex-direction: horizontal;
   justify-content: space-around;
   align-items: space-around;
-  height: 600px;
-  width: 800px;
+  height: 500px;
+  width: 1000px;
+
   /* background-color: red; */
 `
 

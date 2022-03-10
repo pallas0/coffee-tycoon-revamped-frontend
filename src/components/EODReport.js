@@ -49,9 +49,9 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
     <div id="eod">
         <h1>EOD REPORT</h1>
         <div className='vertical'>
-          <span>Customers Served: </span><span>{customersServed}</span>
+          <span className='bold'>Customers Served: </span><span style={{'fontSize':'larger'}}>{customersServed}</span>
         </div>
-        <div className='vertical'><span>Money Made: </span><span>${totalEarnings.toFixed(2)}</span></div>
+        <div className='vertical'><span className='bold'>Money Made: </span><span className='money bold'>${totalEarnings.toFixed(2)}</span></div>
         <button onClick={handleNextDayClick}>Start Next Day</button>
     </div>
   )

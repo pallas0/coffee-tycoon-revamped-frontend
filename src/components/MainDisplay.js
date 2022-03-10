@@ -12,7 +12,7 @@ function MainDisplay({ menu }) {
   let menuItems = []
   for(const coffee in menu) {
     if (menu[coffee]['quantity'] > 0) {
-      menuItems.push(<Grid key={coffee} item xs={4}>
+      menuItems.push(<Grid key={coffee} item xs={6}>
         <span key={coffee} elevation={0} className="paper">
           {coffee}: {menu[coffee]['quantity']}
           </span>
@@ -23,7 +23,7 @@ function MainDisplay({ menu }) {
   return (
     <div id='maindisplay'>
       <div id="menu-display">
-        <h1 className="header">MENU</h1>
+        <h1 id="menuheader">MENU</h1>
         <Grid container spacing={2}>
         {menuItems}
         </Grid>
