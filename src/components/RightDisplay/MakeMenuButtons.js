@@ -8,7 +8,7 @@ import { flexbox } from '@material-ui/system';
 import styled from 'styled-components';
 import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 
-function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
+function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrders, setDisplayCafeGif, setShowMain}) {
   const [isClicked, setIsClicked] = useState(false)
   const [open, setOpen] = useState(false);
 
@@ -39,7 +39,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
 
     function handleNewDayClick() {
       setIsClicked(false)
-      setDisplayEOD(true)
+      setDisplayCafeGif(true)
       setShowMain(false)
     
 

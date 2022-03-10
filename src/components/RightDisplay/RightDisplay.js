@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
   justify-content: center;
 `
 
-function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrders, setDisplayEOD, setShowMain}) {
+function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrders, setDisplayCafeGif, setShowMain}) {
   const [items, setItems] = useState([])
   const [menu, setMenu] = useState({
     "Black Coffee": { "buy_price": 1.75, "quantity": 0}, 
@@ -93,7 +93,7 @@ function RightDisplay({money, setMoney, passMenuUp, setWeather, weather, setOrde
         setWeather={setWeather} 
         weather={weather} 
         setOrders={setOrders}
-        setDisplayEOD={setDisplayEOD}
+        setDisplayCafeGif={setDisplayCafeGif}
         setShowMain={setShowMain}/>
     </div>
   )
