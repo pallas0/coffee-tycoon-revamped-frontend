@@ -85,7 +85,7 @@ const StyledDiv = styled.div`
   return (
     <div id='rightdisplay'>
       <div className='vertical'>
-        <span style={{'paddingBottom': '5px'}} className='bold'>Store Money: <span className='money'>${money}</span></span>
+        <span style={{'paddingBottom': '5px'}} className='bold'>Store Money: <span className='money'>${money.toFixed(2)}</span></span>
         <span className='bold'>Number of Drinks: {`${total_num_drinks()}`}</span>
       </div>
       <StyledDiv>
