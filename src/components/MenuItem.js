@@ -43,7 +43,7 @@ function MenuItem({
           </input>
           <button onClick={() => handleButtonClick("plus", name, isClicked)} style={{"height": "25px"}}>+</button>
         </StyledDiv>
-      <StyledPrice>${price}/ea</StyledPrice>
+      <StyledPrice>${price.toFixed(2)}/ea</StyledPrice>
     </StyledContainer>
   )
 }

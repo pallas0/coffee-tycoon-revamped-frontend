@@ -28,10 +28,10 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
     .then(res => res.json())
     .then((data) => setMoney(data[0].money))
     
-    fetch("http://localhost:9292/orders", 
-      {method: 'DELETE'})
-    fetch("http://localhost:9292/menuitems)", 
-      {method: 'DELETE'})
+    // fetch("http://localhost:9292/orders", 
+    //   {method: 'DELETE'})
+    // fetch("http://localhost:9292/menuitems)", 
+    //   {method: 'DELETE'})
 
     setDisplayMenu(() => {})
     setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))
