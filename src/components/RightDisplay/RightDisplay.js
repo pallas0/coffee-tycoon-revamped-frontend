@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
   })
 
   function getFetch(something) {
-    return fetch(`http://localhost:9292/${something}`)
+    return fetch(`https://aqueous-shore-45744.herokuapp.com/${something}`)
     .then(res => res.json())
   }
 

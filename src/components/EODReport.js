@@ -5,18 +5,18 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
   const [fulfilled, setFulfilled] = useState([])
   const [notFulfilled, setNotFulfilled] = useState([])
   
-  useEffect(() => {fetch("http://localhost:9292/orders/fulfilled")
+  useEffect(() => {fetch("https://aqueous-shore-45744.herokuapp.com/orders/fulfilled")
     .then(res => res.json())
     .then(data => setFulfilled(() => data))}, [orders])
 
-  useEffect(() => {fetch("http://localhost:9292/orders/not_fulfilled")
+  useEffect(() => {fetch("https://aqueous-shore-45744.herokuapp.com/orders/not_fulfilled")
     .then(res => res.json())
     .then(data => setNotFulfilled(() => data))}, [orders])
 
   function handleNextDayClick() {
     const monies = money + totalEarnings
     
-    fetch("http://localhost:9292/stores", {
+    fetch("https://aqueous-shore-45744.herokuapp.com/stores", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -28,10 +28,6 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
     .then(res => res.json())
     .then((data) => setMoney(data[0].money))
     
-    // fetch("http://localhost:9292/orders", 
-    //   {method: 'DELETE'})
-    // fetch("http://localhost:9292/menuitems)", 
-    //   {method: 'DELETE'})
 
     setDisplayMenu(() => {})
     setWeather(() => Math.floor(Math.random() * (Math.floor(90)-Math.ceil(40)) + Math.ceil(40)))

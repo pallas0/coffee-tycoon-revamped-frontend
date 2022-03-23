@@ -9,11 +9,6 @@ const StyledSpan = styled.span`
 function BottomText({orders, setOrders}) {
   
 
-  // useEffect(() => {
-  //   fetch('http://localhost:9292/orders')
-  //   .then(res => res.json())
-  //   .then(data => setOrders(() => data))
-  // }, [])
 
     let fulfilled_orders = orders.filter((order)=> order.fulfilled)
     let unfulfilled_orders = orders.filter((order) => !order.fulfilled)

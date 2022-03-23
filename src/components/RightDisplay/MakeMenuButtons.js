@@ -43,7 +43,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       setShowMain(false)
     
 
-      await fetch("http://localhost:9292/menuitems", {
+      await fetch("https://aqueous-shore-45744.herokuapp.com/menuitems", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function MakeMenuButtons({ menu, money, handleMenu, setWeather, weather, setOrde
       })
 
 
-      fetch(`http://localhost:9292/orders/20/${weather}`)
+      fetch(`https://aqueous-shore-45744.herokuapp.com/orders/20/${weather}`)
       .then(res => res.json())
       .then(data => setOrders(() => data))
     }
