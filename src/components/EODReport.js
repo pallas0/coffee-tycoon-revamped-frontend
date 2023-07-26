@@ -5,18 +5,18 @@ function EODReport({orders, onHandleNextDayClick, money, setMoney, setDisplayMen
   const [fulfilled, setFulfilled] = useState([])
   const [notFulfilled, setNotFulfilled] = useState([])
   
-  useEffect(() => {fetch("https://aqueous-shore-45744.herokuapp.com/orders/fulfilled")
+  useEffect(() => {fetch("https://coffee-tycoon-backend.herokuapp.com/orders/fulfilled")
     .then(res => res.json())
     .then(data => setFulfilled(() => data))}, [orders])
 
-  useEffect(() => {fetch("https://aqueous-shore-45744.herokuapp.com/orders/not_fulfilled")
+  useEffect(() => {fetch("https://coffee-tycoon-backend.herokuapp.com/orders/not_fulfilled")
     .then(res => res.json())
     .then(data => setNotFulfilled(() => data))}, [orders])
 
   function handleNextDayClick() {
     const monies = money + totalEarnings
     
-    fetch("https://aqueous-shore-45744.herokuapp.com/stores", {
+    fetch("https://coffee-tycoon-backend.herokuapp.com/stores", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
