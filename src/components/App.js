@@ -34,14 +34,14 @@ function App() {
   const [showMain, setShowMain] = useState(false)
 
   function getFetch(something) {
-    return fetch(`https://aqueous-shore-45744.herokuapp.com/${something}`)
+    return fetch(`https://coffee-tycoon-backend.herokuapp.com/${something}`)
     .then(res => res.json())
   }
 
   useEffect(() => getFetch("stores").then(data => setMoney(data[0].money)), [])
 
   function handleStartGame(){
-    fetch("https://aqueous-shore-45744.herokuapp.com/stores/1", {
+    fetch("https://coffee-tycoon-backend.herokuapp.com/stores/1", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
