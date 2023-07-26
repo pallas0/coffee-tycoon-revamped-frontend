@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
   })
 
   function getFetch(something) {
-    return fetch(`https://aqueous-shore-45744.herokuapp.com/${something}`)
+    return fetch(`https://coffee-tycoon-backend.herokuapp.com/${something}`)
     .then(res => res.json())
   }
 
