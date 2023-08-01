@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Coffee Tycoon Game Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Coffee Tycoon Game! This is the frontend repository for the game, built with React. The project was developed collaboratively with [Jack Pena (jpena925)](https://github.com/jpena925), and [Rebekah Zhou (rebekah-zhou)](https://github.com/rebekah-zhou). In this game, you will become the tycoon you always wanted to be, managing your own coffee shop and striving to maximize your profits.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To get started with the Coffee Tycoon Game frontend, follow these steps:
 
-### `npm start`
+1. Clone the repository: If you haven't already, clone this repository to your local machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Install dependencies: Navigate to the project directory and run `npm install` to install all the required packages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Start the frontend: Once all the dependencies are installed, you can start the frontend by running `npm start`. The game will open in your default web browser at `http://localhost:3000`.
 
-### `npm test`
+## Gameplay Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1346" alt="Screenshot 2023-07-26 at 1 05 21 PM" src="https://github.com/pallas0/coffee-tycoon-revamped-frontend/assets/52135849/0ff62a71-5659-476f-9c55-77252dd9e56b">
 
-### `npm run build`
+<img width="1298" alt="Screenshot 2023-07-26 at 1 06 00 PM" src="https://github.com/pallas0/coffee-tycoon-revamped-frontend/assets/52135849/76444e97-56e0-410c-89ed-6b61b7ec65ed">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1401" alt="Screenshot 2023-07-26 at 1 07 27 PM" src="https://github.com/pallas0/coffee-tycoon-revamped-frontend/assets/52135849/edaae9ea-f766-4b52-acf0-101e27a81bcb">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backend Repository
 
-### `npm run eject`
+The backend of the Coffee Tycoon Game is hosted on [GitHub](link-to-backend-repo). It is built with Sinatra and PostgreSQL, providing the necessary APIs to manage the game logic and data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployed Project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The frontend of the Coffee Tycoon Game is deployed and accessible [here](https://coffee-tycoon-revamped-frontend.vercel.app/). The frontend is built with React and hosted on Vercel.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## How to Play
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Upon starting the game, you'll have a starting budget of $40.
 
-## Learn More
+2. Your goal is to maximize your profits by selecting which drinks to add to your coffee shop's menu.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Each day, 20 customers will visit your coffee shop. You need to determine which drinks to offer to meet their demands.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Consider the weather, as it may affect customers' order selections.
 
-### Code Splitting
+5. At the end of each day, you'll receive a breakdown of your successes and failures.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. You'll have the chance to edit your menu and prepare for the next day.
 
-### Analyzing the Bundle Size
+7. Your ultimate goal is to become a Coffee Tycoon and manage a highly profitable coffee shop!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+If you'd like to contribute to the Coffee Tycoon Game frontend, feel free to fork this repository and submit your pull requests. We welcome any improvements, bug fixes, or new features to make the game even more enjoyable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
+The Coffee Tycoon Game frontend is open-source and licensed under the [MIT License](link-to-license-file).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy the game and have fun becoming a Coffee Tycoon! ☕️
